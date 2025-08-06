@@ -2,7 +2,7 @@
 This is a repository for notes pertaining to the IB Math syllabus. It will soon contain a small number of math notes which I hope will grow to a large collection of notes which span the entire syllabus.
 
 ## making changes
-These notes are written in LaTeX. Source files can be found in the LaTeX folder. Compiled PDFs of the files can be found in the PDF folder. Should you feel there is a mistake (spelling, grammar, or math), feel free to fork and push any changes (or improvements).
+These notes are written in LaTeX. Source files can be found in the LaTeX folder. Compiled PDFs of the files can be found in the PDF folder. Should you feel there is a mistake (spelling, grammar, or math), feel free to open an issue.
 
 ## attribution and license
 These notes are loosely based upon content from the IB Math AA HL Textbook by Wathall and co. (ISBN: 0198427166) and the IB Math AA HL content on the SaveMyExams website.

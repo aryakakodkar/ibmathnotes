@@ -1,0 +1,705 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 3.1 (February 18, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@latextemplates.com)
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	11pt, % Default font size, select one of 10pt, 11pt or 12pt
+	fleqn, % Left align equations
+	a4paper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{../styles/LegrandOrangeBook}
+
+% Book information for PDF metadata, remove/comment this block if not required 
+\hypersetup{
+	pdftitle={Title}, % Title field
+	pdfauthor={Author}, % Author field
+	pdfsubject={Subject}, % Subject field
+	pdfkeywords={Keyword1, Keyword2, ...}, % Keywords
+	pdfcreator={LaTeX}, % Content creator field
+}
+
+\addbibresource{sample.bib} % Bibliography file
+
+\definecolor{ocre}{RGB}{255, 0, 0} % Define the color used for highlighting throughout the book
+
+% \chapterimage{orange1.jpg} % Chapter heading image
+\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{10pt}
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \normalsize%
+    \setlength\abovedisplayskip{14pt}%
+    \setlength\belowdisplayskip{6pt}%
+    \setlength\abovedisplayshortskip{0pt}%
+    \setlength\belowdisplayshortskip{2pt}%
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+%\titlepage % Output the title page
+%	{\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+%	{ % Title(s) and author(s)
+%		\centering\sffamily % Font styling
+%		{\Huge\bfseries Exploring the Physical Manifestation of Humanity's Subconscious Desires\par} % Book title
+%		\vspace{16pt} % Vertical whitespace
+%		{\LARGE A Practical Guide\par} % Subtitle
+%		\vspace{24pt} % Vertical whitespace
+%		{\huge\bfseries Goro Akechi\par} % Author name
+%	}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+%\thispagestyle{empty} % Suppress headers and footers on this page
+%
+%~\vfill % Push the text down to the bottom of the page
+%
+%\noindent Copyright \copyright\ 2022 Goro Akechi\\ % Copyright notice
+%
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+%
+%\noindent \textsc{\href{https://www.latextemplates.com/template/legrand-orange-book}{book-website.com}}\\ % URL
+%
+%\noindent \textit{First printing, March 2022} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\pagestyle{empty} % Disable headers and footers for the following pages
+%
+%\tableofcontents % Output the table of contents
+%
+%%\listoffigures % Output the list of figures, comment or remove this command if not required
+%%
+%%\listoftables % Output the list of tables, comment or remove this command if not required
+%
+%\pagestyle{fancy} % Enable default headers and footers again
+%
+%\cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Vectors}
+
+\chapter{Vector Equation of a Line}
+
+\section{The Different Forms of Equations}
+
+\subsection{The Vector Form}
+
+We have already met the slope-intercept equation of a line, $y = mx + c$. It turns out that we can equivalently use vectors to represent lines, using the following equation:
+\begin{equation}
+    \mathbf{p} = \mathbf{a} + \lambda \mathbf{d}
+\end{equation}
+
+I will now try to give some intuition about the equation. Consider the line drawn in \autoref{fig:vector_line}. The line goes through two points, $A$ and $B$, with position vectors $\mathbf{a}$ and $\mathbf{b}$. We need to find a succint equation which represents all of the points on this line.
+
+\begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=0.5\textwidth]{vector_line_demo.png} % Include the figure image
+	\caption{A line in 2-dimensions}
+	\label{fig:vector_line} % Unique label used for referencing the figure in-text
+\end{figure}
+
+If we start at $A$, and move to $B$, we have traversed the line segment $AB$, which can be described using the displacement vector $\overrightarrow{AB}$. This is called a direction vector: any vector which is parallel to the line ($\overrightarrow{BA}$ would also be a direction vector). We write our chosen direction vector as $\mathbf{d}$. Hopefully, you can see that for any general point $P$ on the line, with position vector $\mathbf{p}$, $\overrightarrow{AP}$ must be parallel to $\mathbf{d}$. Recall that any two parallel vectors must be scalar multiples of each other:
+\begin{equation*}
+    \overrightarrow{AP} = \mathbf{p} - \mathbf{a} = \lambda \mathbf{d} \implies \mathbf{p} = \mathbf{a} + \lambda \mathbf{d}
+\end{equation*}
+
+where $\lambda$ is a scalar. This brings us to the final form of the vector equation of a line. The position vector of any point on the line $\mathbf{p}$ can be represented using the position vector of a point which is known to be on the line $\mathbf{a}$ and the direction vector of the line $\mathbf{d}$.
+
+\begin{remark}
+	For a visualization of this, visit the following 3D Desmos graph: \url{https://www.desmos.com/3d/x11krwktpa}
+\end{remark}
+
+\smallskip
+\begin{worked}
+Find the vector equation of the line passing through \(A(4,6)\) with direction \(\mathbf{i}+2\mathbf{j}\).
+\end{worked}
+
+\begin{solution}
+As we showed above, in order to write down the vector equation of a line, we need the coordinates of a point on that line and a direction vector for that line. This question has given us both of those directly. Hence, we can write:
+	\begin{align*}
+		\mathbf{a} &= \begin{pmatrix}
+			4 \\ 
+			6
+		\end{pmatrix} \\
+		\mathbf{d} &= \begin{pmatrix}
+			1 \\ 
+			2
+		\end{pmatrix}
+	\end{align*}
+	
+	From here, we can simply write down the equation of the line:
+	\begin{equation*}
+		\begin{pmatrix}
+        	x \\
+        	y
+    	\end{pmatrix} = \begin{pmatrix}
+			4 \\ 
+			6
+		\end{pmatrix} + \lambda \begin{pmatrix}
+			1 \\ 
+			2
+		\end{pmatrix}
+	\end{equation*}
+	
+	Here, $x$ and $y$ are the coordinates of point $P$ as described above
+\end{solution}
+
+% TODO Stop from spanning page vertically
+
+\subsection{The Parametric Form}
+
+We can write the \textbf{parametric form} of a line by considering the components of the vector form:
+\begin{equation*}
+    \begin{pmatrix}
+        x \\
+        y \\
+        z
+    \end{pmatrix} = \begin{pmatrix}
+        x_1 \\
+        y_1 \\
+        z_1
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        d_1 \\
+        d_2 \\
+        d_3
+    \end{pmatrix}
+\end{equation*}
+
+For the parametric form, $x$, $y$, and $z$ are the coordinates of a general point on the line ($P$, in the above), $x_1$, $y_1$, and $z_1$ are the coordinates of a known point on the line ($A$, in the above), and $d_1$, $d_2$, and $d_3$ are the components of the direction vector ($\mathbf{d}$, in the above). 
+
+The final parametric form is given by separating the components into individual equations:
+\begin{align*}
+    x &= x_1 + \lambda d_1 \\
+    y &= y_1 + \lambda d_2 \\
+    z &= z_1 + \lambda d_3 
+\end{align*}
+
+The parametric form can then be used to find the Cartesian form.
+
+\subsection{The Cartesian Form}
+
+The \textbf{Cartesian form} is obtained by eliminating $\lambda$ from the equations in the parametric form. First, we rearrange both equations in terms of $\lambda$:
+\begin{align*}
+    \lambda &= \frac{x-x_1}{d_1}\\
+    \lambda &= \frac{y-y_1}{d_2} \\
+    \lambda &= \frac{z-z_1}{d_3}
+\end{align*}
+
+We can then simply write the Cartesian form:
+\begin{equation}
+    \frac{x-x_1}{d_1} = \frac{y-y_1}{d_2} = \frac{z-z_1}{d_3}
+\end{equation}
+
+\begin{remark}
+	The denominators of each of the terms in the Cartesian form make up the direction vector of the line — this is a handy way of finding direction vectors quickly if you're given the equation in Cartesian form
+\end{remark}
+
+If any of the components of the direction vector are zero, we have to write the Cartesian form as two (or more) separate equations, as below:
+
+\begin{itemize}
+	\item If only one component of $\mathbf{d}$ is zero (e.g. $d_1$), we write the Cartesian form as: \begin{equation*}
+			x=x_1, \frac{y-y_1}{d_2} = \frac{z-z_1}{d_3}
+		\end{equation*}
+	\item If two components are zero (e.g. $d_1$ and $d_2$), we write the Cartesian form as:
+		\begin{equation*}
+			x=x_1, y=y_1, \frac{z-z_1}{d_3} = \lambda
+		\end{equation*}
+\end{itemize}
+
+% TODO Add slope-intercept form
+
+% TUTORING ONLY
+%\newpage
+%\setcounter{problem}{0}
+%\begin{problem}
+%	The vector equation of a line is given by:
+%	\begin{equation}
+%		\mathbf{p} = \begin{pmatrix}
+%        12 \\
+%        4 \\
+%        8
+%    \end{pmatrix} + \lambda \begin{pmatrix}
+%        -2 \\
+%        3 \\
+%        5
+%    \end{pmatrix}
+%	\end{equation}
+%\end{problem}
+%
+%Write the above equation in its parametric and Cartesian forms
+%\newpage
+
+\subsection{Exercises}
+
+\newpage
+\section{Finding Vector Equations and Points on Lines}
+
+\subsection{Finding Vector Equations}
+
+You may be asked to find the vector equation of a line. In this case, you will be given either:
+\begin{enumerate}[label=(\alph*)]
+	\item the coordinates of a point which the line passes through and the direction of the line
+	\item the coordinates of two points which the line passes through
+\end{enumerate}
+
+The former is fairly easy to deal with, as the coordinates of the point are the components of $\mathbf{a}$, and the direction vector is equal to $\mathbf{d}$.
+
+In the case that you are given two points, you can use the coordinates of either of these points as the components of $\mathbf{a}$. However, you will need to determine $\mathbf{d}$ yourself. You can do this by simply determining either displacement vector between the two points ($\overrightarrow{AB}$ or $\overrightarrow{BA}$). This vector is bound to be parallel to the line (if you don't believe this, look at $\overrightarrow{AB}$ in \autoref{fig:vector_line}), and can hence be used as $\mathbf{d}$.
+
+\subsection{Normal Lines}
+
+You may sometimes be asked to determine the equation of a line which is normal (i.e. perpendicular) with another line. If the direction vector of a line is given by $\mathbf{d} = d_1 \mathbf{i} + d_2 \mathbf{j}$, then one possible normal vector is given by: $\mathbf{n} = d_2 \mathbf{i} - d_1\mathbf{j}$ (if you don't believe this, try finding the dot product of the two vectors).
+
+Remember, there are an infinite number of possible normal vectors: any vector parallel to $\mathbf{n}$ is also a normal vector.
+
+\subsection{Checking if a Point is On A Line}
+
+To check if a point, R (position vector $\mathbf{r}$), lies on a line defined by the vector equation of a line, we simply sub $\mathbf{r}$ into $\mathbf{p}$ and check if there exists some value of $\lambda$ for which the equation is satisfied:
+\begin{equation*}
+	\mathbf{r} = \mathbf{a} + \lambda \mathbf{d}
+\end{equation*}
+
+This is best solved by breaking down the vectors into their individual components, then solving for $\lambda$ individually. If a coherent value of $\lambda$ exists, the point lies on the line. Otherwise, it does not.
+
+\subsection{Exercises}
+
+\newpage
+\section{Multiple Lines}
+
+\subsection{Writing Equations}
+
+When we write the equations for multiple lines, we need to be able to differentiate between the various lines that we have modelled. To this extent, we name each line using the $L_n$ nomenclature. We must also remember that our scalar multiple ($\lambda$, in our case) needs to be changed for different lines.
+
+% TODO Cite a worked example where this can be seen
+
+\subsection{Relationships between Lines}
+
+In a 2D plane, any two lines will follow one of these relations:
+
+\begin{enumerate}[label=(\alph*)]
+	\item the lines are parellel
+	\item the lines are intersecting
+	\item the lines are coincident (they are the same line)
+\end{enumerate}
+
+% TODO Diagram to show this
+% TODO Add Desmos link
+
+For two lines to be \textbf{intersecting}, they must have a point of intersection (i.e. there must exist at least one point that satisfies both line equations). For two lines to be \textbf{parallel}: their direction vectors must be scalar multiples of one another.  For two lines to be \textbf{coincident}, they must be both parallel \textit{and} intersecting.
+
+In 3 dimensions, there is an additional possibility: lines can be \textbf{skew}. This means that the lines are neither parallel nor intersecting (this is not possible in 2 dimensions, as any two lines that aren't parallel must eventually run into each other). To determine whether two lines are skew, we simply check that they are not parallel and not intersecting.
+
+\subsection{Finding Points of Intersection}
+
+Assuming we have the equations of two lines:
+\begin{align*}
+	L_1: \mathbf{p} &= \begin{pmatrix}
+		a_1 \\ a_2 \\ a_3
+	\end{pmatrix} + \lambda \begin{pmatrix}
+		d_1 \\ d_2 \\ d_3
+	\end{pmatrix} \\
+	L_2: \mathbf{p} &= \begin{pmatrix}
+		b_1 \\ b_2 \\ b_3
+	\end{pmatrix} + \mu \begin{pmatrix}
+		v_1 \\ v_2 \\ v_3
+	\end{pmatrix}
+\end{align*}
+
+Note that in the above, line $L_1$ has direction vector $d_1\mathbf{i} + d_2\mathbf{j} + d_3\mathbf{k}$ and line $L_2$ has direction vector $v_1\mathbf{i} + v_2\mathbf{j} + v_3\mathbf{k}$
+
+To find a point of intersection between the two lines, we must equate the equations (just as you would in slope-intercept form). We then separate the vector equations into three equations, one for each component:
+\begin{align*}
+	a_1 + \lambda d_1 &= b_1 + \mu v_1 \\
+	a_2 + \lambda d_2 &= b_2 + \mu v_2 \\
+	a_3 + \lambda d_3 &= b_3 + \mu v_3
+\end{align*}
+
+This is a system of equations: solve any two to find the values of $\lambda$ and $\mu$, then substitute those values back into the third equation to see if they work.
+
+% TODO Is newpage required
+
+\newpage
+\begin{worked}
+	Find the point of intersection between lines $L_1$ and $L_2$ with equations:
+	\begin{align*}
+		L_1: \mathbf{r} &= \begin{pmatrix}
+			1 \\ 2 \\ 3
+		\end{pmatrix} + \lambda \begin{pmatrix}
+			1 \\ 0 \\ 1
+		\end{pmatrix} \\
+		L_2: \mathbf{r} &= \begin{pmatrix}
+			0 \\ 2 \\ 2
+		\end{pmatrix} + \mu \begin{pmatrix}
+			2 \\ 1 \\ -1
+		\end{pmatrix} 
+	\end{align*}
+\end{worked}
+\begin{solution}
+	First, we set the right-hand sides of the two equations equal to each other:
+	\begin{equation*}
+		\begin{pmatrix}
+			1 \\ 2 \\ 3
+		\end{pmatrix} + \lambda \begin{pmatrix}
+			1 \\ 0 \\ 1
+		\end{pmatrix} = \begin{pmatrix}
+			0 \\ 2 \\ 2
+		\end{pmatrix} + \mu \begin{pmatrix}
+			2 \\ 1 \\ -1
+		\end{pmatrix} 
+	\end{equation*}
+	
+	Now, we separate this equation into 3 independent equations, each relating to one component:
+	\begin{align*}
+		1 + 1\lambda &= 0 + 2\mu \\
+		2 + 0\lambda &= 2 + 1\mu \\
+		3 + 1\lambda &= 2 - 1\mu
+	\end{align*}
+	
+	Now, we solve any two of these equations. In this example, we'll pick the first and the last, but you can pick any two (try this, if you want!). From the first equation:
+	\begin{equation*}
+		1 + \lambda = 2\mu \implies \lambda = 2\mu - 1
+	\end{equation*}
+	
+	From the second equation:
+	\begin{equation*}
+		3 + \lambda = 2 - \mu \implies \lambda = - \mu -1 
+	\end{equation*}
+	
+	This tells us:
+	\begin{equation*}
+		2\mu - 1 = -\mu - 1 \implies \mu = 0 \implies \lambda = -1
+	\end{equation*}
+	
+	We substitute our calculated values of $\lambda$ and $\mu$ into the unused equation, in this case, the second equation:
+	\begin{equation*}
+		2 + 0(-1) = 2 = 2 + 1(0)
+	\end{equation*}
+	
+	This proves that both sides of the equation are equal, so we can now substitute our calculated value of $\lambda$ or $\mu$ into our equation for $L_1$ or $L_2$, respectively:
+	\begin{equation*}
+		\mathbf{r} = \begin{pmatrix}
+			1 \\ 2 \\ 3
+		\end{pmatrix} + (-1) \begin{pmatrix}
+			1 \\ 0 \\ 1
+		\end{pmatrix} \implies \mathbf{r} = \begin{pmatrix}
+			0 \\ 2 \\ 2
+		\end{pmatrix}
+	\end{equation*}
+	
+	This gives us the position vector of the point of intersection, with coordinates (0, 2, 2)
+\end{solution}
+
+\newpage
+
+\begin{problem}
+	Find, in slope-intercept form, the equation of a line which passes through the point (8, 4) and has normal vector $9\mathbf{i} + 4\mathbf{j}$
+\end{problem}
+
+% TODO Move shortest distance stuff
+%\section{Shortest Distance Problems}
+%
+%\subsection{Shortest Distance between a Point and a Line}
+%
+%The shortest distance between an arbitrary point and a line is the perpendicular distance between the point and the line, as shown in \autoref{fig:shortest_distance_point_line}.
+%
+%\begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+%	\centering % Horizontally center the figure on the page
+%	\includegraphics[width=0.5\textwidth]{point_line_shortest_distance.png} % Include the figure image
+%	\caption{The shortest distance between a point ($A$) and a line ($L$)}
+%	\label{fig:shortest_distance_point_line} % Unique label used for referencing the figure in-text
+%\end{figure}
+%
+%We label the point on line $L$ which is closest to point $A$ as the point $F$. In order to determine the position of $F$, we write the position vector $\overrightarrow{OF}$ and from there, find the vector $\overrightarrow{FA}$. We then compute the dot product of $\overrightarrow{FA}$ with the direction vector of line $L$ and set this to zero ($\overrightarrow{FA}$ is necessarily perpendicular to $L$). This allows us to find the position vector of $F$.
+%
+%To find the shortest distance, we compute $|\overrightarrow{FA}|$.
+%
+%\subsection{Shortest Distance between Two Lines}
+
+% TODO Update image
+
+
+
+
+
+
+%\setcounter{problem}{1}
+%\begin{problem}
+%	A line passes through the points $A(1, 4)$ and $B(-2, 3)$. Find:
+%	\begin{enumerate}[label=(\alph*)]
+%  		\item the vector equation of the line
+%  		\item the Cartesian equation of the line
+%  		\item the slope-intercept form of the line
+%	\end{enumerate}
+%\end{problem}
+%\newpage
+%
+%
+%\begin{problem}
+%	Determine whether the point $A(2, 3, 5)$ lies on a line which passes through the origin and is parallel to the vector $4\mathbf{i} + 6\mathbf{j} + 10\mathbf{k}$
+%\end{problem}
+%\newpage
+
+
+
+\chapter{Mathematics}
+
+
+
+\section{Theorems}\index{Theorems}
+
+\subsection{Several equations}\index{Theorems!Several Equations}
+
+This is a theorem consisting of several equations.
+
+\begin{theorem}[Name of the theorem] % Specify a name/title in square brackets, or leave them out for no title
+	In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+	\begin{align}
+		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+	\end{align}
+\end{theorem}
+
+\subsection{Single Line}\index{Theorems!Single Line}
+
+This is a theorem consisting of just one line.
+
+\begin{theorem} % Specify a name/title in square brackets, or leave them out for no title
+	A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+\end{theorem}
+
+%------------------------------------------------
+
+\section{Definitions}\index{Definitions}
+
+A definition can be mathematical or it could define a concept.
+
+\begin{definition}[Definition name] % Specify a name/title in square brackets, or leave them out for no title
+	Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+	\begin{align}
+		& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+		& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+		& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+	\end{align}
+\end{definition}
+
+%------------------------------------------------
+
+\section{Notations}\index{Notations}
+
+\begin{notation} % Specify a name/title in square brackets, or leave them out for no title
+	Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+	\begin{enumerate}
+		\item Bounded support $G$;
+		\item Infinitely differentiable;
+	\end{enumerate}
+	a vector space is denoted by $\mathcal{D}(G)$. 
+\end{notation}
+
+%------------------------------------------------
+
+\section{Remarks}\index{Remarks}
+
+This is an example of a remark.
+
+\begin{remark}
+	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{remark}
+
+%------------------------------------------------
+
+\section{Corollaries}\index{Corollaries}
+
+\begin{corollary}[Corollary name] % Specify a name/title in square brackets, or leave them out for no title
+	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{corollary}
+
+%------------------------------------------------
+
+\section{Propositions}\index{Propositions}
+
+\subsection{Several equations}\index{Propositions!Several Equations}
+
+\begin{proposition}[Proposition name] % Specify a name/title in square brackets, or leave them out for no title
+	It has the properties:
+	\begin{align}
+		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+	\end{align}
+\end{proposition}
+
+\subsection{Single Line}\index{Propositions!Single Line}
+
+\begin{proposition} % Specify a name/title in square brackets, or leave them out for no title
+	Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+\end{proposition}
+
+%------------------------------------------------
+
+\section{Examples}\index{Examples}
+
+\subsection{Equation Example}\index{Examples!Equation}
+
+\begin{example} % Specify a name/title in square brackets, or leave them out for no title
+	Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+	\begin{equation}
+	f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+	& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+	\end{equation}
+	The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\mathopen{]}0\,;5/2-\sqrt{2}\mathclose{[}$.
+\end{example}
+
+\subsection{Text Example}\index{Examples!Text}
+
+\begin{example}[Example name] % Specify a name/title in square brackets, or leave them out for no title
+	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+\end{example}
+
+%------------------------------------------------
+
+\section{Exercises}\index{Exercises}
+
+\begin{exercise} % Specify a name/title in square brackets, or leave them out for no title
+	This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+\end{exercise}
+
+%------------------------------------------------
+
+\section{Problems}\index{Problems}
+
+\begin{problem} % Specify a name/title in square brackets, or leave them out for no title
+	What is the average airspeed velocity of an unladen swallow?
+\end{problem}
+
+%------------------------------------------------
+
+\section{Vocabulary}\index{Vocabulary}
+
+Define a word to improve a students' vocabulary.
+
+\begin{vocabulary}[Word] % Specify a name/title in square brackets, or leave them out for no title
+	Definition of word.
+\end{vocabulary}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTING INFORMATION/RESULTS EXAMPLES CHAPTER
+%----------------------------------------------------------------------------------------
+
+% \chapterimage{orange3.jpg} % Chapter heading image
+\chapterspaceabove{6.25cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.5cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+\chapter{Presenting Information and Results with a Long Chapter Title}
+
+\section{Table}\index{Table}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+
+\begin{table}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+	\centering % Horizontally center the table on the page
+	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
+		\toprule
+		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+		\midrule
+		Treatment 1 & 0.0003262 & 0.562 \\
+		Treatment 2 & 0.0015681 & 0.910 \\
+		Treatment 3 & 0.0009271 & 0.296 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Table caption.}
+	\label{tab:example} % Unique label used for referencing the table in-text
+\end{table}
+
+Referencing \autoref{tab:example} in-text using its label.
+
+\begin{table}[t] % Floating table, [t] tells LaTeX to place it at the top of the next available page
+	\centering % Horizontally center the table on the page
+	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
+		\toprule
+		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+		\midrule
+		Treatment 1 & 0.0003262 & 0.562 \\
+		Treatment 2 & 0.0015681 & 0.910 \\
+		Treatment 3 & 0.0009271 & 0.296 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Floating table.}
+	\label{tab:floating} % Unique label used for referencing the table in-text
+\end{table}
+
+%------------------------------------------------
+
+\section{Figure}\index{Figure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+
+\begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=0.5\textwidth]{creodocs_logo.pdf} % Include the figure image
+	\caption{Figure caption.}
+	\label{fig:placeholder} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Referencing \autoref{fig:placeholder} in-text using its label.
+
+\begin{figure}[b] % Floating figure, [b] tells LaTeX to place it at the bottom of the next available page
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=\textwidth]{creodocs_logo.pdf} % Include the figure image
+	\caption{Floating figure.}
+	\label{fig:floating} % Unique label used for referencing the figure in-text
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

@@ -23,6 +23,9 @@ Thumbs.db
 *.snm
 *.vrb
 
+# Texpad temporary files
+.texpadtmp/
+
 # Backup files
 *~
 *.backup

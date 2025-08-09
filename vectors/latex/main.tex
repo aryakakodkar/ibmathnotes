@@ -38,7 +38,7 @@
 	fleqn, % Left align equations
 	a4paper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
 	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
-]{../styles/LegrandOrangeBook}
+]{../../styles/LegrandOrangeBook}
 
 % Book information for PDF metadata, remove/comment this block if not required 
 \hypersetup{
@@ -48,8 +48,6 @@
 	pdfkeywords={Keyword1, Keyword2, ...}, % Keywords
 	pdfcreator={LaTeX}, % Content creator field
 }
-
-\addbibresource{sample.bib} % Bibliography file
 
 \definecolor{ocre}{RGB}{255, 0, 0} % Define the color used for highlighting throughout the book
 
@@ -61,8 +59,7 @@
 \usepackage[parfill]{parskip}
 \usepackage{amsmath}
 
-%\setlength{\parindent}{0pt}
-%\setlength{\parskip}{10pt}
+% Set consant spacing between equations and succeeding paragraphs
 \expandafter\def\expandafter\normalsize\expandafter{%
     \normalsize%
     \setlength\abovedisplayskip{14pt}%
@@ -76,57 +73,101 @@
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
-%----------------------------------------------------------------------------------------
-
-%\titlepage % Output the title page
-%	{\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
-%	{ % Title(s) and author(s)
-%		\centering\sffamily % Font styling
-%		{\Huge\bfseries Exploring the Physical Manifestation of Humanity's Subconscious Desires\par} % Book title
-%		\vspace{16pt} % Vertical whitespace
-%		{\LARGE A Practical Guide\par} % Subtitle
-%		\vspace{24pt} % Vertical whitespace
-%		{\huge\bfseries Goro Akechi\par} % Author name
-%	}
-
-%----------------------------------------------------------------------------------------
-%	COPYRIGHT PAGE
-%----------------------------------------------------------------------------------------
-
-%\thispagestyle{empty} % Suppress headers and footers on this page
-%
-%~\vfill % Push the text down to the bottom of the page
-%
-%\noindent Copyright \copyright\ 2022 Goro Akechi\\ % Copyright notice
-%
-%\noindent \textsc{Published by Publisher}\\ % Publisher
-%
-%\noindent \textsc{\href{https://www.latextemplates.com/template/legrand-orange-book}{book-website.com}}\\ % URL
-%
-%\noindent \textit{First printing, March 2022} % Printing/edition date
-
-%----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS
-%----------------------------------------------------------------------------------------
-
-%\pagestyle{empty} % Disable headers and footers for the following pages
-%
-%\tableofcontents % Output the table of contents
-%
-%%\listoffigures % Output the list of figures, comment or remove this command if not required
-%%
-%%\listoftables % Output the list of tables, comment or remove this command if not required
-%
-%\pagestyle{fancy} % Enable default headers and footers again
-%
-%\cleardoublepage % Start the following content on a new page
-
-%----------------------------------------------------------------------------------------
-%	PART
+%	NOTES ON VECTORS
 %----------------------------------------------------------------------------------------
 
 \part{Vectors}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1: INTRODUCTION TO VECTORS
+%----------------------------------------------------------------------------------------
+
+\chapter{Introduction to Vectors}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1: GEOMETRIC REPRESENTATION OF VECTORS
+%----------------------------------------------------------------------------------------
+
+\section{Defining a Vector}
+
+\textbf{Vectors} are mathematical objects that are used to describe a quantity with both a \textbf{magnitude} and a \textbf{direction} (this is the `physics' interpretation of vectors). Conversely, a \textbf{scalar} is an object with only a magnitude. Let us clarify what we mean by each of these: the magnitude of a vector is the size of that vector, and its direction tells us where it points. If this is still unclear, see Section for a more intuitive understanding
+
+% TODO Cite section
+
+We are fairly familiar with scalar quantities: any number on its own is a scalar, since it doesn't define a direction, just a size.
+
+\section{Geometric Representation of Vectors}
+
+To think about vectors geometrically, we first have to think about lines. A line, by definition, is infinite. A part of a line which is bounded by two points is called a \textbf{line segment}. In the figure below, line segment $[AB]$ is highlighted in red. This is the same as line segment $[BA]$, because simple line segments don't have a direction.
+
+% TODO Add figure
+
+On the other hand, \textbf{directed line segments} are line segments which \textit{do} have a direction. We use the notation $\overrightarrow{AB}$ to denote these segments, where $A$ is the starting point and $B$ is the endpoint. In this case: $\overrightarrow{AB} \ne \overrightarrow{BA}$.
+
+It is important to note that directed line segments always have a geometrically defined start and endpoint. This is where they differ from vectors: vectors do not have a pre-defined start or endpoint. Think of them as arrows that can be moved around. In the figure below, all of the arrows highlighted in red are the same vector, despite starting and ending at different points. 
+
+% TODO Add figure
+
+There are many notations used to represent vectors. In this set of notes, I represent vectors with a small bold letter, like $\mathbf{v}$. You may also see a small arrow above the letter ($\overrightarrow{a}$), and in some special cases, the same notation as is used for the directed line segments ($\overrightarrow{AB}$). 
+
+\begin{remark}
+	You should be comfortable with all three of these vector notations, but I would suggest only using one of them when actually solving your problems. You can't recreate a bold letter when writing by hand, so I would suggest using the arrow notations
+\end{remark}
+
+For now, we will solely think of vectors as arrows in space. This is the `geometrical perspective.' Later on, we will delve into the `algebraic' definition of a vector.
+
+Now, looking back to our definition of a vector as a quantity with both a magnitude and a direction, we can see how the properties of our arrow correspond to each of these quantities:
+
+\begin{itemize}
+	\item The magnitude of the vector is represented by the length of the arrow (we write $|\mathbf{a}|$ or $|\overrightarrow{AB}|$ to represent magnitudes)
+	\item The direction of the vector is represented by the direction in which the arrow points
+\end{itemize}
+
+\subsection{Geometric Vector Operations}
+
+\subsubsection{Addition}
+
+Just as with numbers (scalars), we can perform various operations on vectors. Some of these will be (hopefully) very familiar to you: adding, subtracting, and multiplying (by a scalar).
+
+When we add two vectors, we first draw one vector, then draw the next vector starting at the tip (endpoint) of the first vector. The sum vector is the one which starts at the tail (start) of the first vector, and ends on the tip of the second vector.
+
+Hopefully, you can get some intuition for why this is by considering \textbf{displacement}. Displacement is a vector which describes how far an object has moved from a given starting point. It is described by both a magnitude (how far it has moved, i.e. distance) and direction (where it has moved relative to its starting point). 
+
+In the figure below, the black dot represents a person, Paul. If Paul steps forward 1 step, then to the right 2 steps, we can describe each of his movements using displacement vectors (shown in black). His first movement pushes him forward one step, and then his second movement begins from the point his first ended (i.e. the tail of the first arrow), and pushes him rightward 2 steps. His total displacement vector is the vector from his start point to the end point (shown in red).
+
+\begin{remark}
+	Of course, Paul would have ended up in the same place if he had taken the two steps to the right first, then the 1 step forward (try and show this using vectors)
+\end{remark} 
+
+% TODO Add Paul
+
+\subsubsection{Scalar Multiplication}
+
+
+
+\section{Mathematical Representation of Vectors}
+
+%\begin{problem}
+%	A regular hexagon $ABCDEF$ with the centre $O$ of the circumscribed circle is given. The points $M$, $N$, and $P$, are midpoints of the sides $[EF]$, $[DE]$, and $[CD]$ respectively.
+%	
+%	If the vectors $\overrightarrow{AB}=\mathbf{a}$ and $\overrightarrow{AF}=\mathbf{b}$, find in terms of $\mathbf{a}$ and $\mathbf{b}$:
+%	\begin{enumerate}[label=(\alph*)]
+%	\item $\overrightarrow{AO}$
+%	\item $\overrightarrow{CB}$
+%	\item $\overrightarrow{CE}$
+%	\item $\overrightarrow{DF}$
+%	\item $\overrightarrow{PA}$
+%	\item $\overrightarrow{AN}$
+%	\item $\overrightarrow{CM}$
+%	\item $\overrightarrow{PN}$
+%\end{enumerate}
+%
+%\end{problem}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2: INTRODUCTION TO VECTORS
+%----------------------------------------------------------------------------------------
 
 \chapter{Vector Equation of a Line}
 
@@ -489,217 +530,5 @@ This is a system of equations: solve any two to find the values of $\lambda$ and
 %\end{problem}
 %\newpage
 
-
-
-\chapter{Mathematics}
-
-
-
-\section{Theorems}\index{Theorems}
-
-\subsection{Several equations}\index{Theorems!Several Equations}
-
-This is a theorem consisting of several equations.
-
-\begin{theorem}[Name of the theorem] % Specify a name/title in square brackets, or leave them out for no title
-	In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
-	\begin{align}
-		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-	\end{align}
-\end{theorem}
-
-\subsection{Single Line}\index{Theorems!Single Line}
-
-This is a theorem consisting of just one line.
-
-\begin{theorem} % Specify a name/title in square brackets, or leave them out for no title
-	A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
-\end{theorem}
-
-%------------------------------------------------
-
-\section{Definitions}\index{Definitions}
-
-A definition can be mathematical or it could define a concept.
-
-\begin{definition}[Definition name] % Specify a name/title in square brackets, or leave them out for no title
-	Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
-	\begin{align}
-		& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
-		& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
-		& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
-	\end{align}
-\end{definition}
-
-%------------------------------------------------
-
-\section{Notations}\index{Notations}
-
-\begin{notation} % Specify a name/title in square brackets, or leave them out for no title
-	Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
-	\begin{enumerate}
-		\item Bounded support $G$;
-		\item Infinitely differentiable;
-	\end{enumerate}
-	a vector space is denoted by $\mathcal{D}(G)$. 
-\end{notation}
-
-%------------------------------------------------
-
-\section{Remarks}\index{Remarks}
-
-This is an example of a remark.
-
-\begin{remark}
-	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-\end{remark}
-
-%------------------------------------------------
-
-\section{Corollaries}\index{Corollaries}
-
-\begin{corollary}[Corollary name] % Specify a name/title in square brackets, or leave them out for no title
-	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-\end{corollary}
-
-%------------------------------------------------
-
-\section{Propositions}\index{Propositions}
-
-\subsection{Several equations}\index{Propositions!Several Equations}
-
-\begin{proposition}[Proposition name] % Specify a name/title in square brackets, or leave them out for no title
-	It has the properties:
-	\begin{align}
-		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-	\end{align}
-\end{proposition}
-
-\subsection{Single Line}\index{Propositions!Single Line}
-
-\begin{proposition} % Specify a name/title in square brackets, or leave them out for no title
-	Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
-\end{proposition}
-
-%------------------------------------------------
-
-\section{Examples}\index{Examples}
-
-\subsection{Equation Example}\index{Examples!Equation}
-
-\begin{example} % Specify a name/title in square brackets, or leave them out for no title
-	Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
-	\begin{equation}
-	f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
-	& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
-	\end{equation}
-	The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\mathopen{]}0\,;5/2-\sqrt{2}\mathclose{[}$.
-\end{example}
-
-\subsection{Text Example}\index{Examples!Text}
-
-\begin{example}[Example name] % Specify a name/title in square brackets, or leave them out for no title
-	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
-\end{example}
-
-%------------------------------------------------
-
-\section{Exercises}\index{Exercises}
-
-\begin{exercise} % Specify a name/title in square brackets, or leave them out for no title
-	This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
-\end{exercise}
-
-%------------------------------------------------
-
-\section{Problems}\index{Problems}
-
-\begin{problem} % Specify a name/title in square brackets, or leave them out for no title
-	What is the average airspeed velocity of an unladen swallow?
-\end{problem}
-
-%------------------------------------------------
-
-\section{Vocabulary}\index{Vocabulary}
-
-Define a word to improve a students' vocabulary.
-
-\begin{vocabulary}[Word] % Specify a name/title in square brackets, or leave them out for no title
-	Definition of word.
-\end{vocabulary}
-
-%----------------------------------------------------------------------------------------
-%	PRESENTING INFORMATION/RESULTS EXAMPLES CHAPTER
-%----------------------------------------------------------------------------------------
-
-% \chapterimage{orange3.jpg} % Chapter heading image
-\chapterspaceabove{6.25cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{7.5cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
-
-%------------------------------------------------
-
-\chapter{Presenting Information and Results with a Long Chapter Title}
-
-\section{Table}\index{Table}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
-
-\begin{table}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
-	\centering % Horizontally center the table on the page
-	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
-		\toprule
-		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-		\midrule
-		Treatment 1 & 0.0003262 & 0.562 \\
-		Treatment 2 & 0.0015681 & 0.910 \\
-		Treatment 3 & 0.0009271 & 0.296 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Table caption.}
-	\label{tab:example} % Unique label used for referencing the table in-text
-\end{table}
-
-Referencing \autoref{tab:example} in-text using its label.
-
-\begin{table}[t] % Floating table, [t] tells LaTeX to place it at the top of the next available page
-	\centering % Horizontally center the table on the page
-	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
-		\toprule
-		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-		\midrule
-		Treatment 1 & 0.0003262 & 0.562 \\
-		Treatment 2 & 0.0015681 & 0.910 \\
-		Treatment 3 & 0.0009271 & 0.296 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Floating table.}
-	\label{tab:floating} % Unique label used for referencing the table in-text
-\end{table}
-
-%------------------------------------------------
-
-\section{Figure}\index{Figure}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
-
-\begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
-	\centering % Horizontally center the figure on the page
-	\includegraphics[width=0.5\textwidth]{creodocs_logo.pdf} % Include the figure image
-	\caption{Figure caption.}
-	\label{fig:placeholder} % Unique label used for referencing the figure in-text
-\end{figure}
-
-Referencing \autoref{fig:placeholder} in-text using its label.
-
-\begin{figure}[b] % Floating figure, [b] tells LaTeX to place it at the bottom of the next available page
-	\centering % Horizontally center the figure on the page
-	\includegraphics[width=\textwidth]{creodocs_logo.pdf} % Include the figure image
-	\caption{Floating figure.}
-	\label{fig:floating} % Unique label used for referencing the figure in-text
-\end{figure}
-
-%----------------------------------------------------------------------------------------
 
 \end{document}

@@ -1,0 +1,55 @@
+\chapter{Applications of Sequences and Series}
+
+\section{Simple Interest}
+
+\begin{definition}[Interest]
+  \textit{Interest} is the cost of borrowing money, usually expressed as a percentage of the principal amount
+  borrowed, over a specific period of time.
+\end{definition}
+
+\begin{definition}[Simple Interest]
+  \textit{Simple interest} is a way of calculating interest on a principal amount
+  where the interest is calculated only on the original principal, not on the accumulated interest.
+\end{definition}
+
+If you're not familiar with either of the above defitions (or both), I hope that 
+the following example will help clarify things. 
+
+\begin{eg}
+	Let's say you borrow \$1000 from a bank at an annual simple interest rate of 5\% for 3 years. 
+	The \$1000 your borrowed is called the \textit{principal} amount. The interest rate is 5\% per year, which means that
+	each year, you will owe 5\% of the principal amount as interest. That means that your annual interest (payment) is:
+	\begin{equation*}
+		\text{Annual Interest} = \text{Principal} \times \text{Interest Rate} = 1000 \times 0.05 = \$50
+	\end{equation*}
+	So, each year, you owe \$50 in interest. Over 3 years, the total interest you owe is:
+	\begin{equation*}
+		\text{Total Interest} = \text{Annual Interest} \times \text{Number of Years} = 50 \times 3 = \$150
+	\end{equation*}
+	If, instead of being asked to pay the interest annually, you are asked to pay the interest (and the principal) back 
+	all at once at the end of the 3 years, you would owe:
+	\begin{align*}
+		\text{Principal} + (\text{Annual Interest} \times \text{Number of Years}) &= 1000 + (50 \times 3) = \$1150
+	\end{align*}
+	Note that it's fairly straightforward to extend this example to any number of years. For $n$ years worth of interst, we find:
+	\begin{align*}
+		\text{Total Interest} &= \text{Annual Interest} \times \text{Number of Years} = 50 \times n \\
+		\text{Total Amount Owed} &= \text{Principal} + (\text{Annual Interest} \times \text{Number of Years}) = 1000 + (50 \times n)
+	\end{align*}
+	Hopefully, you can see that the total amount owed forms an arithmetic sequence, with the $n$th term corresponding to the total amount owed
+	after $n$ years. Each year, the amount increases by a constant amount (\$50), which is the common difference of the arithmetic sequence.
+\end{eg}
+
+It's important to note that in the above case of simple interest, the interest payment remains
+constant each year because it's calculated only based on the original principal. This is in contrast to compound interest. 
+
+\section{Compound Interest}
+
+\begin{definition}
+	  \textit{Compound interest} is a way of calculating interest where the interest is calculated on both the original principal
+  and the accumulated interest from previous periods.
+\end{definition}
+
+Essentially, with compound interest, you generate interest, which is added back onto the principal. 
+Consequently, you earn interest on the new, larger principal amount in the next period. 
+This leads to an exponential growth of the total amount owed, as opposed to linear growth. 

@@ -1,0 +1,109 @@
+\chapter{Geometric Sequences and Series}
+
+\section{General Formula}
+
+\begin{proposition}
+	  The general formula for the $n$th term of a geometric sequence is given by:
+  \begin{equation}
+	u_n = u_1 \times r^{n-1}
+  \end{equation}
+  where $u_1$ is the first term and $r$ is the common ratio.
+\end{proposition}
+\begin{proof}
+	We know that the first term is simply $u_1$. We obtain the second term by multiplying the first term by $r$:
+	\begin{equation}
+		u_2 = u_1 \times r
+	\end{equation}
+	We employ a similar approach for the remaining terms:
+	\begin{align}
+		u_3 &= u_2 \times r = u_1 \times r^2 \\
+		u_4 &= u_3 \times r = u_1 \times r^3 \\
+		&\vdots \\
+		u_n &= u_1 \times r^{n-1}
+	\end{align}
+	This proof is quite similar to that of the arithmetic sequence's general formula.
+\end{proof}
+
+As with arithmetic sequences, solving problems relating to geometric sequences
+requires you to identify the first term and the common ratio. From there, you can 
+plug values into the general formula to find the desired term.
+
+\section{Geometric Series}
+
+\begin{definition}[Geometric Series]
+	A \textit{geometric series} is the sum of the terms of a geometric sequence. If we take the first $n$ terms of a geometric sequence
+	and add them together, we get a finite geometric series. 
+\end{definition}
+
+With geometric sequences, there is an additional consideration. The sums of infinite geometric 
+series are not necessarily undefined, as with arithmetic series. 
+
+\begin{definition}[Convergence]
+	A series is said to \textit{converge} if the sum approaches a finite value as more terms are added. 
+	If the sum does not approach a finite value, the series is said to \textit{diverge}. To determine 
+	whether a geometric series converges or diverges, we look at the common ratio, $r$. If $|r| < 1$, the series converges; 
+	otherwise, it diverges.
+\end{definition}
+
+\begin{intuition}
+	To understand why a geometric series converges when $|r| < 1$, consider the behavior of the terms in the series. 
+	When the common ratio $r$ is between -1 and 1, each successive term in the geometric sequence becomes smaller in magnitude. 
+	As more terms are added to the series, the contributions of these smaller terms become negligible, leading the sum to approach a finite limit.
+	On the other hand, if $|r| \geq 1$, the terms do not decrease in magnitude, and the sum continues to grow without bound, resulting in divergence.
+\end{intuition}
+
+We will consider the above in more detail when we consider the infinite sum of a geometric
+series. First, let's start with finite sums:
+
+\begin{proposition}
+	The sum of the first $n$ terms of a geometric series can be calculated using the formula:
+	\begin{equation}
+		S_n = u_1 \frac{1 - r^n}{1 - r} \quad \text{for } r \neq 1
+	\end{equation}
+	where $u_1$ is the first term and $r$ is the common ratio.
+\end{proposition}
+\begin{proof}
+	Let the first $n$ terms of a geometric series be denoted by $S_n$:
+	\begin{align}
+		S_n &= u_1 + u_2 + u_3 + \ldots + u_n \\
+		&= u_1 + u_1 r + u_1 r^2 + \ldots + u_1 r^{n-1}\label{eq:proof-3-1}
+	\end{align}
+	Multiplying both sides by $r$ gives:
+	\begin{equation}\label{eq:proof-3-2}
+		r S_n = u_1 r + u_1 r^2 + u_1 r^3 + \ldots + u_1 r^n
+	\end{equation}
+	Subtracting equation \eqref{eq:proof-3-2} from equation \eqref{eq:proof-3-1}, we get:
+	\begin{align*}
+		S_n - r S_n &= u_1 - u_1 r^n \\
+		S_n (1 - r) &= u_1 (1 - r^n) \\
+		S_n &= u_1 \frac{1 - r^n}{1 - r}
+	\end{align*}
+\end{proof}
+
+The formula is valid for all geometric series. We employ a similar proof for the sum 
+of an infinite geometric series, which only applies when the series converges.
+
+\begin{proposition}
+	The sum of an infinite geometric series converges to:
+	\begin{equation}
+		S_\infty = \frac{u_1}{1 - r} \quad \text{for } |r| < 1
+	\end{equation}
+	where $u_1$ is the first term and $r$ is the common ratio.
+\end{proposition}
+\begin{proof}
+	Let's start at the same place as we did for the finite sum, by writing out th complete sum:
+	\begin{equation}\label{eq:proof-3-3}
+		S_\infty = u_1 + u_1 r + u_1 r^2 + u_1 r^3 + \ldots
+	\end{equation}
+	Multiplying both sides by $r$ gives:
+	\begin{equation}\label{eq:proof-3-4}
+		r S_\infty = u_1 r + u_1 r^2 + u_1 r^3 + \ldots
+	\end{equation}
+	Subtracting equation \eqref{eq:proof-3-4} from equation \eqref{eq:proof-3-3}, we get:
+	\begin{align*}
+		S_\infty - r S_\infty &= u_1 \\
+		S_\infty (1 - r) &= u_1 \\
+		S_\infty &= \frac{u_1}{1 - r}
+	\end{align*}
+	However, this only holds true if the series converges, which occurs when $|r| < 1$.
+\end{proof}

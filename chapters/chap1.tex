@@ -1,0 +1,199 @@
+\chapter{Introduction}
+\section{Definitions}
+
+\begin{definition}[Sequence]\label{def:sequence}
+  A \textit{sequence} is an ordered list of numbers which follows
+a specific pattern. Each number in this pattern is called a \textit{term}. Sequences
+can be finite or infinite (i.e. they may or may not have a last term).
+\end{definition}
+
+\begin{eg}
+  Some examples of sequences include:
+  \begin{itemize}
+    \item $2, 4, 6, 8, 10, \ldots$ (even numbers)
+    \item $1, 4, 9, 16, 25, \ldots$ (perfect squares)
+    \item $1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots$ (reciprocals of natural numbers)
+  \end{itemize}
+  \vskip0.5cm
+\end{eg}
+
+\vskip0.2cm
+For the rest of these definitions, we'll use the first of these examples. Note that when
+a \hyperref[def:sequence]{sequence} is written with ellipses ($\ldots$), it is assumed to be infinite. The first term
+of this sequence is $2$, the second is $4$, the third is $6$, and so on.
+But what about the \nth{100} term? Clearly we can't just keep counting! Instead, we define a \textit{general formula} for the $n$th term,
+which allows us to quickly calculate the value of any term.
+
+\begin{notation}
+  The $n$th term of a sequence is denoted by $u_n$. In this case, the first term is $u_1=2$, the 
+  second is $u_2=4$, and so on.
+\end{notation}
+
+The formula for the $n$th term (for the sequence of even numbers) can then be written as:
+\begin{equation}
+  u_n = 2n
+\end{equation}
+
+To find the value of any term in the sequence, we simply substitute the term number, $n$, into the general formula.
+Now, we can easily find the \nth{100} term:
+\begin{equation*}
+  u_{100} = 2 \times 100 = 200
+\end{equation*}
+
+Clearly, this is much more efficient than counting all the way up to the \nth{100} term!
+
+\begin{definition}[Series]\label{def:series}
+  A \textit{series} is the sum of the terms of a sequence. If we take the first $n$ terms of a sequence
+  and add them together, we get a finite series. If we add up all the terms of an infinite sequence,
+  we get an infinite series.
+\end{definition}
+
+For the \hyperref[def:sequence]{sequence} we defined earlier ($2, 4, 6, 8, \ldots$), the \hyperref[def:series]{series} formed by adding the
+first $n$ terms is denoted by $S_n$. In this case:
+
+\begin{align*}
+  S_1 &= 2 \\
+  S_2 &= 2 + 4 = 6 \\
+  S_3 &= 2 + 4 + 6 = 12 \\
+  \vdots \\
+  S_n &= 2 + 4 + 6 + \ldots + 2n \\
+  \vdots \\
+  S_\infty &= 2 + 4 + 6 + 8 + \ldots
+\end{align*}
+
+Where $S_\infty$ represents the infinite \hyperref[def:series]{series} formed by adding all the terms of the \hyperref[def:sequence]{sequence}. Note that
+this infinite series `diverges,' meaning that the terms of the sum keep growing, so the sum's value is undefined.
+We will discuss this in more detail later on.
+
+\section{General Formulae}
+
+Finding general formulae is a key part of working with \hyperref[def:sequence]{sequences} and \hyperref[def:series]{series}. Often,
+the challenge lies in identifying the pattern. In this section,
+I'll discuss some common types of sequences, and hopefully demonstate what to look out for.
+
+\begin{definition}[Arithmetic Sequence]\label{def:arithmetic_sequence}
+  An \textit{arithmetic sequence} is a sequence in which the difference between consecutive terms is a constant, called the common difference, $d$.
+\end{definition}
+
+\begin{exercise}
+  Find the general formula for the following arithmetic sequence:
+  \begin{equation*}
+    5, 11, 17, 23, 29, \ldots
+  \end{equation*}
+\end{exercise}
+\begin{answer}
+  You can quickly identify an \hyperref[def:arithmetic_sequence]{arithmetic sequence} by checking whether the difference between consecutive terms
+  remains constant. In this case, the common difference is $d=6$. The general formula for the $n$th term can be expressed as:
+  \begin{equation*}
+    u_n = u_1 + (n-1)d = 5 + (n-1) \times 6 = 6n - 1
+  \end{equation*}
+
+  \noindent We'll discuss where this formula comes from in the next section.
+\end{answer}
+
+
+\begin{definition}[Geometric Sequence]\label{def:geometric_sequence}
+  A \textit{geometric sequence} is a sequence in which each term is found by multiplying the previous term by a constant, called the common ratio, $r$.
+\end{definition}
+
+\begin{exercise}
+  Find the general formula for the following geometric sequence:
+  \begin{equation*}
+    3, 6, 12, 24, 48, \ldots
+  \end{equation*}
+\end{exercise}
+\begin{answer}
+  Recognizing a \hyperref[def:geometric_sequence]{geometric sequence} is similarly straightforward; check whether the
+  ratio (division) between consecutive terms remains constant. In this case, the common ratio is $r=2$. The general formula for the $n$th term can be expressed as:
+  \begin{equation*}
+    u_n = u_1 \times r^{n-1} = 3 \times 2^{n-1}
+  \end{equation*}
+
+  \noindent We'll discuss where this formula comes from in the next section.
+\end{answer}
+
+There are a few other common sequences which you should recognize on sight, such as:
+
+\begin{itemize}
+  \item Perfect squares: $1, 4, 9, 16, 25, \ldots$ with general formula $u_n = n^2$
+  \item Perfect cubes: $1, 8, 27, 64, 125, \ldots$ with general formula $u_n = n^3$
+\end{itemize}
+
+It is also possible that you may be given a sequence of fractions, where either the numerator,
+denominator, or both follow a specific pattern. In such cases, we can consider the patterns separately.
+
+\begin{exercise}
+  Find the general formula for the following sequence:
+  \begin{equation*}
+    \frac{1}{2}, \frac{3}{4}, \frac{5}{8}, \frac{7}{16}, \ldots
+  \end{equation*}
+\end{exercise}
+\begin{answer}
+  In this case, the numerators follow an \hyperref[def:arithmetic_sequence]{arithmetic sequence} with a common difference of $2$, 
+  while the denominators follow a \hyperref[def:geometric_sequence]{geometric sequence} with a common ratio of $2$. 
+  Thus, we can express the general term as:
+  \begin{equation*}
+    u_n = \frac{1 + 2(n-1)}{2\times 2^{n - 1}}
+  \end{equation*}
+\end{answer}
+
+\section{Sigma Notation}\label{sec:sigma-notation}
+
+When dealing with \hyperref[def:series]{series}, especially those with many terms, it 
+is often convenient to use sigma notation to represent the sum concisely. Here is an example of 
+a sum expressed in sigma notation:
+\begin{eg}
+  The sum of the first $n$ even numbers can be expressed as:
+  \begin{equation*}
+    S_n = \sum_{i=1}^{n} 2i
+  \end{equation*}
+\end{eg}
+\begin{explanation}
+  In the above example, the statement beneath the sigma symbol ($\sum$) indicates that we are initializing a variable $i=1$.
+  We then increment the variable until it reaches $n$. This maximum value is indicated
+  by the number (or variable) above the sigma symbol. The terms of the sum are given by the expression inside the sigma symbol,
+  telling us to sum $2i$ for each value of $i$ from $1$ to $n$. Hence, the above example tell us:
+  \begin{equation*}
+    S_n = 2(1) + 2(2) + 2(3) + \ldots + 2(n)
+  \end{equation*}
+\end{explanation}
+
+As we said earlier, this sum diverges, so it doesn't have a definite value. If we instead consider the sum of the 
+reciprocals of the even numbers, we find that it actually does have a value:
+\begin{equation*}
+  S_\infty = \sum_{i=1}^{\infty} \frac{1}{2i} = \frac{1}{2} + \frac{1}{4} + \frac{1}{6} + \ldots = 1
+\end{equation*}
+
+It's quite strange that the sum of an infinite number of terms can have a finite value. We'll explore this more 
+with a geometric proof later on.
+
+\begin{exercises}[Introduction to Sequences and Series]
+\end{exercises}
+\begin{questions}
+  \begin{multicols}{2}
+    \begin{enumerate}[label = \alph*), wide, leftmargin = *, itemsep = 1ex, after = \setcounter{enumi}{0}]
+      \item Find the general formula for the following sequences:
+      \begin{tasks}[label=\roman*)](1)
+        \task $1, 3, 5, 7, 9, \ldots$
+        \task $2, 6, 18, 54, 162, \ldots$
+        \task $1, \frac{1}{4}, \frac{1}{9}, \frac{1}{16}, \ldots$
+        \task $4, 9, 16, 25, 36, \ldots$
+      \end{tasks}
+      \vfill\null
+      \columnbreak
+      \item Task B
+      \begin{tasks}(2)[label=\roman*]
+      \task Item b1)
+      \task Item b2)
+      \task Item b3)
+      \task Item b4)
+      \end{tasks}
+          \item Task C \begin{tasks}(2)
+      \task Item b1)
+      \task Item b2)
+      \task Item b3)
+      \task Item b4)
+      \end{tasks}
+    \end{enumerate}
+  \end{multicols}
+\end{questions}

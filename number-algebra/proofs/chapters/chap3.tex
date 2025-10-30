@@ -1,0 +1,44 @@
+\chapter{Induction}
+\section{Proofs by Induction}
+
+Proofs by induction are a powerful method of proving statements 
+that are asserted to be true for all natural numbers (or some well-defined subset
+of them). We remind ourselves:
+
+\begin{definition}[Natural Numbers]\label{def:natural-numbers}
+    The set of positive integers: $\{1, 2, 3, \ldots\}$.
+\end{definition}
+
+Sometimes, \hyperref[def:natural-numbers]{the natural numbers} are defined to include 0,
+but we will not consider this definition here. A proof by induction is defined as follows:
+
+\begin{definition}[Proof by Induction]\label{def:proof-by-induction}
+    A \textit{proof by induction} is a method of proving a statement by showing that if it holds for a natural number $n$, then it also holds for $n+1$. The proof consists of two main steps:
+    \begin{enumerate}
+        \item \textbf{Base Case:} Prove that the statement holds for the initial value (usually $n=1$).
+        \item \textbf{Inductive Step:} Assume the statement holds for some arbitrary natural number $n=k$, and then prove it holds for $n=k+1$.
+    \end{enumerate}
+\end{definition}
+
+\hyperref[def:proof-by-induction]{Proofs by induction} are far more intuitive than their definition suggests. Let us
+first consider the concept of an inductive step: if we can show that the statement holds for $n=k+1$,
+assuming it holds for $n=k$, then we can conclude that the statement holds for all natural numbers greater than or equal to $k$.
+We could define another variable, $m$,
+\begin{equation*}
+    m = k + 1
+\end{equation*}
+
+We know that if the statement holds for $n=k$, then it must also hold for $n=m$. But then, we can apply the same logic to $m$:
+if the statement holds for $n=m$, then it must also hold for $n=m+1$. Of course:
+\begin{equation*}
+    m + 1 = (k + 1) + 1 = k + 2
+\end{equation*}
+Therefore, if the statement holds for $n=k$, it must also hold for $n=k+2$. We can repeat this process indefinitely, showing that
+if the statement holds for $n=k$, it must also hold for all natural numbers greater than $k$.
+
+The keen observer will note that we made an assumption at the beginning of this process: we assumed 
+that the statement holds for $n=k$. What ensures that this assumption is valid? This is where the base case comes in.
+By proving the base case (that the statement holds for $n=1$), we establish a starting point for our inductive step.
+From the base case, we know that the statement holds for $n=1$. Therefore, by the inductive step, it must also hold for $n=1+1=2$.
+Then, by applying the inductive step again, it must hold for $n=3$, and so on. Thus, by proving both the base case and the inductive step,
+we can conclude that the statement holds for all natural numbers.   

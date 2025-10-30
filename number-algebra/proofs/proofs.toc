@@ -3,3 +3,5 @@
 \contentsline {chapter}{\numberline {2}Proofs by Counterexample and Contradiction}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Proof by Counterexample}{4}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Proof by Contradiction}{4}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Induction}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Proofs by Induction}{6}{section.3.1}%

@@ -1,0 +1,74 @@
+\chapter{Proofs by Counterexample and Contradiction}
+\section{Proof by Counterexample}
+
+\begin{definition}[Proof by Counterexample]
+    A \textit{proof by counterexample} is a method of disproving a mathematical statement by providing a specific example
+    that contradicts the statement.
+\end{definition}
+
+When proving a statement to be true, we must show that it holds for all possible
+cases. When proving it to be false, we need only to find a single case where the statement
+does not hold. For example, the statement "All prime numbers are odd" can be disproven
+by providing a single counterexample: the number 2, which is prime but not odd. Proofs by
+counterexample are most useful when you are asked to disprove a statement (they are not particularly
+useful for proving statements to be true).
+
+\section{Proof by Contradiction}
+
+\begin{definition}[Proof by Contradiction]\label{def:proof-by-contradiction}
+    A \textit{proof by contradiction} is a method of proving a mathematical statement by assuming the negation
+    of the statement is true, and showing that this assumption leads to a logical contradiction.
+\end{definition}
+
+\hyperref[def:proof-by-contradiction]{The definition of a proof by contradiction} is rather abstract. 
+In the case of a \hyperref[def:direct-proof]{direct proof}, we assume the premises are true and 
+use logical reasoning to arrive at the conclusion. In a proof by contradition, we still assume that the premises
+are true, but that the conclusion is false. We then use logical reasoning to arrive at a contradiction (we will
+arrive at a statement which contradicts the premises which we assumed to be true).
+
+\begin{proposition}
+    $\sqrt{2}$ is irrational.
+\end{proposition}
+\begin{proof}
+    We first remind ourselves of the defintion of a rational number (and indirectly, an irrational number):
+    \begin{definition}[Rational Number]\label{def:rational-number}
+        A \textit{rational number} is a number that can be expressed as the quotient or fraction $\frac{p}{q}$ of two integers,
+        where $p$ and $q$ are integers and $q \neq 0$. An \textit{irrational number} is a number that cannot be expressed as such a quotient.
+    \end{definition}
+    An \hyperref[def:rational-number]{irrational number} is a number that cannot be expressed as such a quotient. To prove that $\sqrt{2}$ is irrational,
+    we will use a proof by contradiction. We will assume that $\sqrt{2}$ is rational, and show that this assumption leads to a contradiction.
+
+    If $\sqrt{2}$ is rational, then we can express it as:
+    \begin{equation*}
+        \sqrt{2} = \frac{p}{q}
+    \end{equation*}
+    where $p$ and $q$ are integers with no common factors (i.e., the fraction is in simplest form), and $q \neq 0$.
+    Squaring both sides, we get:
+    \begin{equation*}
+        2 = \frac{p^2}{q^2}
+    \end{equation*}
+    Multiplying both sides by $q^2$, we have:
+    \begin{equation*}
+        2q^2 = p^2
+    \end{equation*}
+    This implies that $p^2$ is even (since it is equal to $2q^2$, which is a multiple of 2). Therefore, $p$ must also be even
+    (because the square of an odd number is odd, as you can hopefully prove yourself). We can express $p$ as:
+    \begin{equation*}
+        p = 2k
+    \end{equation*}
+    for some integer $k$. Substituting this back into the equation $2q^2 = p^2$, we get:
+    \begin{equation*}
+        2q^2 = (2k)^2
+    \end{equation*}
+    Simplifying, we have:
+    \begin{equation*}
+        2q^2 = 4k^2
+    \end{equation*}
+    Dividing both sides by 2, we get:
+    \begin{equation*}
+        q^2 = 2k^2
+    \end{equation*}
+    This implies that $q^2$ is even, and therefore $q$ must also be even. However, this contradicts our initial assumption that $p$ and $q$ have
+    no common factors (since both are even, they share a factor of 2). Therefore, we conclude that the assumptions we made at the start 
+    of this proof do not apply: $\sqrt{2}$ is not rational (i.e. it is irrational).
+\end{proof}

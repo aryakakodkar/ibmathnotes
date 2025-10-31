@@ -72,3 +72,65 @@ arrive at a statement which contradicts the premises which we assumed to be true
     no common factors (since both are even, they share a factor of 2). Therefore, we conclude that the assumptions we made at the start 
     of this proof do not apply: $\sqrt{2}$ is not rational (i.e. it is irrational).
 \end{proof}
+
+Since proofs by contradiction are often less intuitive than direct proofs, I will consider a few more examples
+of proofs by contradiction. Note that it is somewhat rare to be asked to prove something by contradiction in 
+the IB. 
+
+\begin{exercise}[Medium]
+    Prove by contradiction that if the integer $n$ is odd, then $n^2$ is also odd.
+\end{exercise}
+\begin{answer}
+    Again, to perform this proof, we must first assume the opposite of the conclusion provided 
+    in the statement. In this case, the conclusion is: $n^2$ is odd. Therefore, we will assume that $n^2$ is even. 
+    \newline\newline
+    We assume that $n$ is odd, and that $n^2$ is even. Since $n^2$ is even, we can express it as:
+    \begin{equation*}
+        n^2 = 2k \implies n \times n = 2k
+    \end{equation*}
+    for some integer $k$. 
+    But we know that the product of two odd numbers is necessarily odd (we will skip the rigorous proof, but you are 
+    encouraged to try to produce it yourself). Hence, we arrive at a contradiction. Therefore, we must conclude that 
+    our assumption that $n^2$ is even is false. Thus, if $n$ is odd, then $n^2$ is also odd. 
+    
+    We could equivalently
+    conclude that our assumption that $n$ is odd is the incorrect one, and in doing so, we automatically prove that
+    if $n^2$ is even, then $n$ is also even. This is called the \textit{contrapositive} of the original statement. 
+    It has the equivalent logical implication as the original statement. This fact is non-examinable.
+\end{answer}
+
+\begin{exercise}[Hard]
+    Prove that there is no $x \in \mathbb{R}$ such that $\frac{1}{x-2} = 1-x$.
+\end{exercise}
+\begin{answer}
+    A quick reminder: $\mathbb{R}$ is the set of all real numbers. To prove this statement by contradiction, we will assume that
+    there exists some $x \in \mathbb{R}$ such that $\frac{1}{x-2} = 1-x$. We will then show that this assumption leads to a contradiction.
+    \newline\newline
+    Starting from our assumption, we have:
+    \begin{equation*}
+        \frac{1}{x-2} = 1-x
+    \end{equation*}
+    Multiplying both sides by $x-2$, we get:
+    \begin{equation*}
+        1 = (1-x)(x-2)
+    \end{equation*}
+    Expanding the right-hand side, we have:
+    \begin{equation*}
+        1 = x - 2 - x^2 + 2x
+    \end{equation*}
+    Simplifying, we get:
+    \begin{equation*}
+        1 = -x^2 + 3x - 2
+    \end{equation*}
+    Rearranging, we have:
+    \begin{equation*}
+        x^2 - 3x + 3 = 0
+    \end{equation*}
+    To determine whether this quadratic equation has any real solutions, we can calculate the discriminant:
+    \begin{equation*}
+        D = b^2 - 4ac = (-3)^2 - 4(1)(3) = 9 - 12 = -3
+    \end{equation*}
+    Since the discriminant is negative ($D < 0$), the quadratic equation has no real solutions. This contradicts 
+    our initial assumption that there exists some $x \in \mathbb{R}$ such that $\frac{1}{x-2} = 1-x$. 
+    Therefore, we conclude that there is no $x \in \mathbb{R}$ such that $\frac{1}{x-2} = 1-x$.
+\end{answer}

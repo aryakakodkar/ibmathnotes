@@ -95,3 +95,48 @@ we can conclude that the statement holds for all natural numbers. As always, an 
     we conclude that the formula for the sum of the first $n$ natural numbers holds for all natural numbers $n$.
     Since it holds for $n=1$, it holds for $n=2$, and so on, for all natural numbers.
 \end{answer}
+
+\begin{exercise}
+    Prove by mathematical induction that $11^n - 6$ is divisible by 5 for all natural numbers $n \geq 1$.
+\end{exercise}
+\begin{answer}
+    We will prove this statement using mathematical induction.
+    \newline\newline
+    \textbf{Base Case:} For our base case, we need to verify that the statement holds for $n=1$:
+    \begin{equation*}
+        11^1 - 6 = 11 - 6 = 5
+    \end{equation*}
+    Since 5 is divisible by 5, the base case holds.
+    \newline\newline
+    \textbf{Inductive Step:} For the inductive step, we assume that the statement holds for some arbitrary natural number $n=k$. 
+    This is our inductive hypothesis. We must then prove that the statement holds for $n=k+1$. 
+    According to our inductive hypothesis, we have:
+    \begin{equation*}
+        11^k - 6 \text{ is divisible by } 5
+    \end{equation*}
+    This means there exists an integer $m$ such that:
+    \begin{equation}\label{eq:inductive-proof-ex2-hyp}
+        11^k - 6 = 5m
+    \end{equation}
+    We need to show that:
+    \begin{equation*}
+        11^{k+1} - 6 \text{ is divisible by } 5
+    \end{equation*}
+    We can express $11^{k+1}$ as $11^k \cdot 11$:
+    \begin{align*}
+        11^{k+1} - 6 &= 11^k \cdot 11 - 6 \\
+                     &= 11(11^k) - 6
+    \end{align*}
+    Now, we can rewrite this expression using our inductive hypothesis (equation \ref{eq:inductive-proof-ex2-hyp}):
+    \begin{align*}
+        11^{k+1} - 6 &= 11(11^k) - 6 \\
+                     &= 11(5m + 6) - 6\\
+                     &= 55m + 66 - 6 \\
+                     &= 55m + 60 \\
+                     &= 5(11m + 12)
+    \end{align*}
+    Since $11m + 12$ is an integer, we have shown that $11^{k+1} - 6$ is divisible by 5.
+    \newline\newline
+    By the principle of mathematical induction, since we have proven both the base case and the inductive step,
+    we conclude that $11^n - 6$ is divisible by 5 for all natural numbers $n \geq 1$.
+\end{answer}

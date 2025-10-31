@@ -41,4 +41,57 @@ that the statement holds for $n=k$. What ensures that this assumption is valid? 
 By proving the base case (that the statement holds for $n=1$), we establish a starting point for our inductive step.
 From the base case, we know that the statement holds for $n=1$. Therefore, by the inductive step, it must also hold for $n=1+1=2$.
 Then, by applying the inductive step again, it must hold for $n=3$, and so on. Thus, by proving both the base case and the inductive step,
-we can conclude that the statement holds for all natural numbers.   
+we can conclude that the statement holds for all natural numbers. As always, an example is better than an explanation:
+
+% TODO: add this to the direct proofs as well
+\begin{exercise}
+    Prove by mathematical induction that the sum of the first $n$ natural numbers is given by the formula:
+    \begin{equation}\label{eq:inductive-proof-ex1}
+        S(n) = \frac{n(n+1)}{2}
+    \end{equation}
+    where $S(n)$ is the sum of the first $n$ natural numbers.
+\end{exercise}
+\begin{answer}
+    A quick note: this is the same problem that we saw in the \hyperref[sec:proofs]{direct proofs} section. Almost always, there is more than 
+    one way to prove any statement. Let's proceed with the proof by induction:
+    \newline\newline
+    \textbf{Base Case:} For our base case, we must prove that the statement holds for the smallest 
+    value of $n$. In this case, the statement concerns the natural numbers, so the smallest value of $n$ is 1. 
+    We check that equation \ref{eq:inductive-proof-ex1} holds for $n=1$:
+    \begin{equation*}
+        S(1) = \frac{1(1+1)}{2} = 1
+    \end{equation*}
+    The sum of the first 1 natural number is indeed 1, so the base case holds.
+    \newline\newline
+    \textbf{Inductive Step:} For the inductive step, we assume that the statement holds for some arbitrary natural number $n=k$. 
+    This is our inductive hypothesis. We must then prove that the statement holds for $n=k+1$. 
+    According to our inductive hypothesis, we have:
+    \begin{equation}\label{eq:inductive-proof-ex1-hyp}
+        S(k) = \frac{k(k+1)}{2}
+    \end{equation}
+    We must show that:
+    \begin{equation*}
+        S(k+1) = \frac{(k+1)(k+2)}{2}
+    \end{equation*}
+    The sum of the first $k+1$ natural numbers is simply the sum of the first $k$ natural numbers plus $k+1$:
+    \begin{align*}
+        S(k+1) &= S(k) + (k+1) 
+    \end{align*}
+    From our inductive hypothesis (equation \ref{eq:inductive-proof-ex1-hyp}), we can substitute for $S(k)$:
+    \begin{align*}
+                S(k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+                &= \frac{k(k+1) + 2(k+1)}{2}  \\
+                &= \frac{k^2 + k + 2k + 2}{2} \\
+                &= \frac{k^2 + 3k + 2}{2} \\
+                &= \frac{(k+1)(k + 2)}{2}
+    \end{align*}
+    We see that the last line of this equation can be rewritten to match equation \ref{eq:inductive-proof-ex1}:
+    \begin{equation*}
+        S(k+1) = \frac{(k+1)\left([k + 1] + 1\right)}{2}
+    \end{equation*}
+    Thus, we have shown that if the statement holds for $n=k$, it also holds for $n=k+1$.
+    \newline\newline
+    By the principle of mathematical induction, since we have proven both the base case and the inductive step,
+    we conclude that the formula for the sum of the first $n$ natural numbers holds for all natural numbers $n$.
+    Since it holds for $n=1$, it holds for $n=2$, and so on, for all natural numbers.
+\end{answer}

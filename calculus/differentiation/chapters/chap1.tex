@@ -224,3 +224,222 @@ are the phenomena we look out for when determining whether a function is continu
     \caption{Graph of equation \ref{eq:continuity-ex1}}
 \end{figure}
 \end{answer}
+
+% Plot of f(x) = (x+2)/(x+1) with vertical and horizontal asymptotes
+
+\section{Asymptotes}
+
+Asymptotes are lines that a graph approaches but never touches. 
+There are three types of asymptotes: vertical, horizontal, and oblique (slant).
+
+\begin{definition}[Vertical Asymptote]
+    A vertical asymptote is a vertical line $x = a$ where the function $f(x)$ approaches infinity (or negative infinity) as $x$ approaches $a$. 
+    This typically occurs at points where the function is undefined, such as points of division by zero.
+\end{definition}
+
+\begin{definition}[Horizontal Asymptote]
+    A horizontal asymptote is a horizontal line $y = b$ where the function $f(x)$ approaches $b$ as $x$ approaches positive or negative infinity. 
+    This indicates the behavior of the function as it extends towards the extremes of the $x$-axis.
+\end{definition}
+
+\begin{definition}[Oblique Asymptote]
+    An oblique (or slant) asymptote is a diagonal line $y = mx + b$ where the function $f(x)$ approaches this line as $x$ approaches positive or negative infinity. 
+    Oblique asymptotes occur when the degree of the numerator is one greater than the degree of the denominator in a rational function.
+\end{definition}
+
+% draw me a 3x1 set of graphs showing vertical, horizontal, and oblique asymptotes using tikz and pgfplots
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            title={Vertical Asymptote: $f(x) = \frac{1}{x-2}$},
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            ymin=-5, ymax=5,
+            xmin=0, xmax=4,
+            xtick={2},
+            ytick=\empty,
+            width=5cm,
+            height=5cm,
+        ]
+            \addplot[blue, thick, domain=0:1.9, samples=100] {1/(x-2)};
+            \addplot[blue, thick, domain=2.1:4, samples=100] {1/(x-2)};
+            \addplot[dashed, red] coordinates {(2,-5) (2,5)};
+        \end{axis}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}
+        \begin{axis}[
+            title={Horizontal Asymptote: $f(x) = 2 - \frac{1}{x+1}$},
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            ymin=-1, ymax=3,
+            xmin=-1, xmax=5,
+            ytick={2},
+            yticklabels={$2$},
+            xtick=\empty,
+            width=5cm,
+            height=5cm,
+        ]
+            \addplot[blue, thick, domain=-0.9:5, samples=100] {2 - 1/(x+1)};
+            \addplot[dashed, red] coordinates {(-1,2) (5,2)};
+        \end{axis}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}
+        \begin{axis}[
+            title={Oblique Asymptote: $f(x) = \frac{x^2 + 1}{x}$},
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            ymin=-1, ymax=5,
+            xmin=-1, xmax=5,
+            width=5cm,
+            height=5cm,
+        ]
+            \addplot[blue, thick, domain=0.1:5, samples=100] {(x^2 + 1)/x};
+            % Correct oblique asymptote: y = x
+            \addplot[dashed, red, domain=0:5] {x};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Examples of Vertical, Horizontal, and Oblique Asymptotes}
+    \label{fig:asymptotes}
+\end{figure}
+
+A \textit{vertical asymptote} typically occurs when the denominator of a function approaches zero
+(as long as the numerator does not also approach zero). At this point, we are dividing a finite number by 
+zero, giving us an infinite result. In the example above, the function $f(x) = \frac{1}{x-2}$ has a vertical asymptote at $x=2$,
+since the denominator becomes zero at this point. 
+
+A \textit{horizontal asymptote} is slightly different. The function above, 
+$f(x) = 2 - \frac{1}{x+1}$, can never be exactly equal to 2, because 
+the fractional term can never be zero (a fraction can only ever be zero if its numerator
+is zero). However, as $x$ becomes very large (either positively or negatively), the fractional term 
+becomes very small, and the function approaches 2. Therefore, $y=2$ is a horizontal asymptote of this function.
+The hardest part about horizontal asymptotes is writing the function in a form similar to the above.
+
+\begin{exercise}
+    Determine the vertical and horizontal asymptotes of the function:
+    \begin{equation*}
+        f(x) = \frac{x+2}{x+1}
+    \end{equation*}
+\end{exercise}
+\begin{answer}
+    We will first solve for the vertical asymptote and then for the horinzontal asymptote. 
+    \newline\newline
+    \textbf{Vertical Asymptote:} To find the vertical asymptote, we need to determine what value of $x$
+    makes the denominator zero. Setting the denominator equal to zero, we have:
+    \begin{equation*}
+        x + 1 = 0
+    \end{equation*}
+    Solving for $x$, we find:
+    \begin{equation*}
+        x = -1
+    \end{equation*}
+    Therefore, the vertical asymptote is at $x = -1$.
+    \newline\newline
+    \textbf{Horizontal Asymptote:} To find the horizontal asymptote, we first need to rewrite the function 
+    in the appropriate form. This means that the numerator must not be dependent on x. 
+    We do this by considering the numerator as some multiple of the denominator, plus a constant:
+    \begin{align*}
+        f(x) &= \frac{x+2}{x+1} \\
+             &= \frac{(x+1) + 1}{x+1} \\
+             &= \frac{x+1}{x+1} + \frac{1}{x+1} \\
+             &= 1 + \frac{1}{x+1}
+    \end{align*}
+    Now, we can see that as $x$ approaches positive or negative infinity, the fractional term approaches zero. 
+    Therefore, the function approaches 1. Thus, the horizontal asymptote is at $y = 1$. The horizontal asymptote
+    is always the multiple of the denominator that gives us the numerator when we rewrite the function.
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            domain=-4:4,
+            samples=200,
+            ymin=-4, ymax=4,
+            xmin=-4, xmax=4,
+            xtick={-1},
+            ytick={1},
+            yticklabels={$1$},
+            grid=none,
+            width=10cm,
+            height=6cm
+        ]
+            % Plot f(x) = (x+2)/(x+1), avoiding x=-1
+            \addplot[red, thick, domain=-4:-1.05] {(x+2)/(x+1)};
+            \addplot[red, thick, domain=-0.95:4] {(x+2)/(x+1)};
+            % Vertical asymptote x=-1
+            \addplot[dashed, red] coordinates {(-1,-4) (-1,4)};
+            % Horizontal asymptote y=1
+            \addplot[dashed, red, domain=-4:4] {1};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $f(x) = \frac{x+2}{x+1}$ with vertical asymptote $x=-1$ and horizontal asymptote $y=1$}
+\end{figure}
+\end{answer}
+
+\textit{Oblique asymptotes} are less common, but the process for finding them
+is similar to that for horizontal asymptotes. Rather than finding an constant
+multiple of the denominator, we need to find a linear function of $x$ (i.e. $mx + b$) such 
+that when we rewrite the function, the numerator can be written as this linear function
+multiplied by the denominator, plus a remainder. The oblique asymptote is then this linear function.
+An example is instructive here. 
+
+\begin{exercise}
+    Find the oblique asymptote of the function:
+    \begin{equation*}
+        f(x) = \frac{2x^2 + 1}{x}
+    \end{equation*}
+\end{exercise}
+\begin{answer}
+    This function clearly has a vertical asymptote at $x=0$ (denominator is zero).
+    It does not have a horizontal asymptote, since the degree of the numerator is greater than
+    that of the denominator. In this case, we look for an oblique asymptote.
+    We use the same trick as we used for the horizontal asymptote, but rather than a constant multiple,
+    we look for a linear function $mx + b$ such that:
+    \begin{equation*}
+        2x^2 + 1 = (mx + b)(x) + R
+    \end{equation*}
+    where $R$ is some remainder (which may be zero).
+    In this case, we can see that $m=2$ and $b=0$ works, since:
+    \begin{align*}
+        f(x) &= \frac{2x^2 + 1}{x} \\
+             &= \frac{(2x)(x) + 1}{x} \\
+             &= \frac{(2x)(x)}{x} + \frac{1}{x} \\
+             &= 2x + \frac{1}{x}
+    \end{align*}
+    Therefore, the oblique asymptote is $y = 2x$.
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xlabel = $x$,
+            ylabel = {$f(x)$},
+            domain=-4:4,
+            samples=200,
+            ymin=-8, ymax=8,
+            xmin=-4, xmax=4,
+            xtick={-2,-1,0,1,2},
+            ytick={-8,-4,0,4,8},
+            grid=none,
+            width=10cm,
+            height=6cm
+        ]
+            % Plot f(x) = (2x^2 + 1)/x, avoiding x=0
+            \addplot[red, thick, domain=-4:-0.05] {(2*x^2 + 1)/x};
+            \addplot[red, thick, domain=0.05:4] {(2*x^2 + 1)/x};
+            % Vertical asymptote x=0
+            \addplot[dashed, blue] coordinates {(0,-8) (0,8)};
+            % Oblique asymptote y=2x
+            \addplot[dashed, red, domain=-4:4] {2*x};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of $f(x) = \frac{2x^2 + 1}{x}$ with vertical asymptote $x=0$ and oblique asymptote $y=2x$}
+\end{figure}
+\end{answer}

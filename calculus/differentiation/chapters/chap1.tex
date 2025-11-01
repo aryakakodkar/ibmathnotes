@@ -1,0 +1,226 @@
+\chapter{Limits and Continuity}
+
+\section{Limits}\label{sec:limits}
+
+Limits are a fundamental concept in calculus that describe the behavior of a function as its input 
+approaches a certain value. We will not consider the rigorous definition of a limit here, but 
+rather focus on the intuititive understanding of limits and how to compute them.
+
+\begin{definition}[Limit of a Function]
+    The \textit{limit} of a function $f(x)$ as $x$ approaches a value $c$ is the value that $f(x)$ approaches
+    as $x$ gets closer and closer to $c$. This is denoted as:
+    \begin{equation*}
+        \lim_{x \to c} f(x) = L
+    \end{equation*}
+    where $L$ is the value that $f(x)$ approaches as $x$ approaches $c$.
+\end{definition}
+
+Now, this is a rather abstract definition. To understand it better, let us consider an example:
+\begin{eg}
+    Consider the function $f(x) = \frac{x^2 - 1}{x - 1}$. We want to find the limit of $f(x)$ as $x$ approaches 1:
+    \begin{equation*}
+        \lim_{x \to 1} \frac{x^2 - 1}{x - 1}
+    \end{equation*}
+    If we directly substitute $x = 1$ into the function, we get:
+    \begin{equation*}
+        f(1) = \frac{1^2 - 1}{1 - 1} = \frac{0}{0}
+    \end{equation*}
+    which is undefined. Instead, let's consider what happens to the function when it is very close to 1.
+    Let's consider $x=1.1$:
+    \begin{equation*}
+        f(1.1) = \frac{(1.1)^2 - 1}{1.1 - 1} = \frac{0.21}{0.1} = 2.1
+    \end{equation*}
+    What if we got even closer? Let's try $x=1.01$:
+    \begin{equation*}
+        f(1.01) = \frac{(1.01)^2 - 1}{1.01 - 1} = \frac{0.0201}{0.01} = 2.01
+    \end{equation*}
+    And even closer, $x=1.001$:
+    \begin{equation*}
+        f(1.001) = \frac{(1.001)^2 - 1}{1.001 - 1} = \frac{0.002001}{0.001} = 2.001
+    \end{equation*}
+    We can see a pattern here: as $x$ gets closer and closer to 1, $f(x)$ gets closer and closer to 2. We conclude that 
+    \begin{equation*}
+        \lim_{x \to 1} \frac{x^2 - 1}{x - 1} = 2
+    \end{equation*}
+    Out loud, we would say: "The limit of $f(x)$ as $x$ approaches 1 is 2."
+    We have considered values of $x$ that are slightly greater than 1 (i.e. we approach 1 from the right on a graph). 
+    Try considering values of $x$ that are slightly less than 1 (i.e. approach 1 from the left on a graph) to verify that the limit is indeed 2.
+\end{eg}
+
+\begin{definition}[Existence of a Limit]
+    We say that the limit of a function $f(x)$ as $x$ approaches $c$ \textit{exists} if the left-hand limit
+    and right-hand limit are equal. That is:
+    \begin{equation*}
+        \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = L
+    \end{equation*}
+    where $L$ is the value that $f(x)$ approaches as $x$ approaches $c$. In this case, we write:
+    \begin{equation*}
+        \lim_{x \to c} f(x) = L
+    \end{equation*}
+\end{definition}
+
+\begin{notation}
+    The notation $\lim_{x \to c^-} f(x)$ denotes the \textit{left-hand limit} of $f(x)$ as $x$ approaches $c$ from values less than $c$.
+    The notation $\lim_{x \to c^+} f(x)$ denotes the \textit{right-hand limit} of $f(x)$ as $x$ approaches $c$ from values greater than $c$.
+\end{notation}
+
+\begin{eg}[Non-existent Limit]
+    Consider the function $f(x)$ defined as:
+    \begin{equation*}
+        f(x) = 
+        \begin{cases} 
+            2 & \text{if } x < 1 \\
+            3 & \text{if } x \geq 1 
+        \end{cases}
+    \end{equation*}
+    We want to find the limit of $f(x)$ as $x$ approaches 1:
+    \begin{equation*}
+        \lim_{x \to 1} f(x)
+    \end{equation*}
+    Let's consider the left-hand limit:
+    \begin{equation*}
+        \lim_{x \to 1^-} f(x) = 2
+    \end{equation*}
+    Now, let's consider the right-hand limit:
+    \begin{equation*}
+        \lim_{x \to 1^+} f(x) = 3
+    \end{equation*}
+    Since the left-hand limit (2) and right-hand limit (3) are not equal, we conclude that the limit of $f(x)$ as $x$ approaches 1 does not exist.
+    Perhaps a graphical representation of this function would help illustrate this concept better.
+    \begin{figure}[H]
+    \centering
+      \begin{tikzpicture}
+          \begin{axis}[
+              axis lines = middle,
+              xlabel = $x$,
+              ylabel = {$f(x)$},
+              ymin=0, ymax=4,
+              xmin=0, xmax=2,
+              xtick={1},
+              ytick={2,3},
+              yticklabels={2,3},
+              domain=0:2,
+              samples=100,
+              width=10cm,
+              height=6cm,
+          ]
+              % Left piece: y=2 for x in [0, just before 1)
+              \addplot[blue, thick, domain=0:0.98, samples=2] {2};
+              % Open circle at (1,2) with blue stroke, no fill
+              \addplot[blue, only marks, mark=o, mark options={scale=1.2,draw=blue,fill=white,line width=1.2pt}] coordinates {(1,2)};
+              % Right piece: y=3 for x in [1,2]
+              \addplot[red, thick, domain=1:2, samples=2] {3};
+              % Solid dot at (1,3)
+              \addplot[red, only marks, mark=*, mark options={scale=1.2}] coordinates {(1,3)};
+          \end{axis}
+      \end{tikzpicture}
+      \caption{Graph of the piecewise function $f(x)$}
+  \end{figure}
+
+Clearly, from the left side (blue), the function approaches 2, while from the right side (red), 
+the function approaches 3. This limit does not exist. Note that we have used an open circle on the left side at $x=1$ to indicate that the function 
+does not include that poin (i.e. $f(x) = 2$ when $x<1$, but not when $x=1$).
+\end{eg}
+
+\section{Continuity}
+
+Continuity of a function is a fairly intuitive concept. A discontinuous function is
+one which contains a `jump' or `break' in its graph. Keep this intuition in mind as 
+we define continuity more formally.
+
+\begin{definition}[Continuity at a Point]\label{def:continuity}
+    A function $f(x)$ is said to be \textit{continuous} at a point $x = c$ if the following three conditions are met:
+    \begin{enumerate}
+        \item $f(c)$ is defined (i.e. $c$ is in the domain of $f$, and not $f(c) \rightarrow \infty$).
+        \item The limit of $f(x)$ as $x$ approaches $c$ exists.
+        \item The limit of $f(x)$ as $x$ approaches $c$ is equal to $f(c)$:
+        \begin{equation*}
+            \lim_{x \to c} f(x) = f(c)
+        \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Continuity on an Interval]
+    A function $f(x)$ is said to be \textit{continuous} on an interval $a \le x \le b$ if it is continuous at every point $x$ in the interval (i.e.
+    every point between $a$ and $b$, inclusive).
+\end{definition}
+
+\begin{definition}[Continuous Function]
+    A function $f(x)$ is said to be a \textit{continuous function} if it is continuous at every point in its domain.
+    A function which is not continuous is called \textit{discontinuous}.
+\end{definition}
+
+While the \hyperref[def:continuity]{rigorous definition of continuity} is somewhat complex, deciding whether a function
+is continuous is often just a matter of determining whether there are any `jumps' or `breaks' in its graph. A function also 
+becomes discontinuous if there is a vertical asymptote (i.e. the function approaches infinity at some point). These 
+are the phenomena we look out for when determining whether a function is continuous.
+
+\begin{exercise}[Easy]
+    Determine whether the function $f(x)$ defined as:
+    \begin{equation}\label{eq:continuity-ex1}
+        f(x) = 
+        \begin{cases} 
+            x^2 & \text{if } x \neq 2 \\
+            5 & \text{if } x = 2 
+        \end{cases}
+    \end{equation}
+    is continuous at $x=2$.
+\end{exercise}
+\begin{answer}
+    To determine whether $f(x)$ is continuous at $x=2$, we will check the three conditions from the definition of continuity:
+    \newline\newline
+    \textbf{Condition 1:} $f(2)$ is defined. From the definition of $f(x)$, we see that $f(2) = 5$. Therefore, condition 1 is satisfied.
+    \newline\newline
+    \textbf{Condition 2:} The limit of $f(x)$ as $x$ approaches 2 exists. We need to compute:
+    \begin{equation*}
+        \lim_{x \to 2} f(x)
+    \end{equation*}
+    Since $f(x) = x^2$ for all $x \neq 2$, we can compute the limit using this expression:
+    \begin{equation*}
+        \lim_{x \to 2} x^2 = 2^2 = 4
+    \end{equation*}
+    Any polynomial function is continuous everywhere, so we can compute the limit by direct substitution. 
+    Therefore, condition 2 is satisfied.
+    \newline\newline
+    \textbf{Condition 3:} The limit of $f(x)$ as $x$ approaches 2 is equal to $f(2)$. We have:
+    \begin{equation*}
+        \lim_{x \to 2} f(x) = 4
+    \end{equation*}
+    and
+    \begin{equation*}
+        f(2) = 5
+    \end{equation*}
+    Since $4 \neq 5$, condition 3 is not satisfied.
+    \newline\newline
+    Since condition 3 is not satisfied, we conclude that the function $f(x)$ is not continuous at $x=2$.
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          axis lines = middle,
+          xlabel = $x$,
+          ylabel = {$f(x)$},
+          domain=0:4,
+          samples=100,
+          ymin=0, ymax=8,
+          xtick=\empty,
+          ytick=\empty,
+          ytick={4,5},
+          yticklabels={$4$,$5$},
+          xtick={2},
+          grid=none,
+          width=10cm,
+          height=6cm
+        ]
+        % Plot y = x^2 except at x=2
+        \addplot [red, thick, domain=0:1.98] {x^2};
+        \addplot [red, thick, domain=2.02:4] {x^2};
+        % Open circle at (2,4)
+        \addplot [red, only marks, mark=o, mark options={scale=1.2,draw=red,fill=white,line width=1.2pt}] coordinates {(2,4)};
+        % Solid dot at (2,5)
+        \addplot [red, only marks, mark=*, mark options={scale=1.2}] coordinates {(2,5)};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Graph of equation \ref{eq:continuity-ex1}}
+\end{figure}
+\end{answer}

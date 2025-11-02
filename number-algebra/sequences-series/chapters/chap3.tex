@@ -107,3 +107,68 @@ of an infinite geometric series, which only applies when the series converges.
 	\end{align*}
 	However, this only holds true if the series converges, which occurs when $|r| < 1$.
 \end{proof}
+
+It is not uncommon for questions on geometric series to feature polynomial functions as terms 
+rather than simple numbers. The approach to solving such problems remains the same; you must identify 
+the first term and the common ratio, then apply the relevant formula.
+
+\begin{exercise}[Hard]
+	The first three terms of a gemetric sequence are $x+4$, $6x$ and $2x^2$. Find:
+	\begin{enumerate}[label=\alph*)]
+		\item the fifth term, $u_5$
+		\item the sum of the first seven terms, $S_7$
+	\end{enumerate}
+\end{exercise}
+\begin{answer}
+	In this question, we are given the first term of the sequence for free. Hence, 
+	all we need to do is find the common ratio. While this may seem somewhat complicated,
+	given that the terms are polynomials, the process is exactly the same as with numerical
+	terms. The common ratio of consecutive terms is given by:
+	\begin{equation*}
+		r = \frac{u_{n+1}}{u_n}
+	\end{equation*}
+	First, we substitute $n=1$ to find the common ratio:
+	\begin{align}
+		r &= \frac{u_2}{u_1} \\
+		&= \frac{6x}{x + 4} \label{eq:geo-ex-1}
+	\end{align}
+	We can also substitute $n=2$ to find the common ratio:
+	\begin{align}
+		r &= \frac{u_3}{u_2} \\
+		&= \frac{2x^2}{6x} \\
+		&= \frac{x}{3} \label{eq:geo-ex-2}
+	\end{align}
+	Since this is a geometric sequence, the ratio between consecutive terms must always be 
+	the same, so the results in equations \eqref{eq:geo-ex-1} and \eqref{eq:geo-ex-2} must be equal:
+	\begin{align*}
+		\frac{6x}{x + 4} &= \frac{x}{3} \\
+		18x &= x^2 + 4x \\
+		x^2 - 14x &= 0 \\
+		x(x - 14) &= 0
+	\end{align*}
+	Hence, $x=0$ or $x=14$. If $x=0$, all the terms of the sequence (other than the first) will also 
+	be $0$ (each consecutive term is multiplied by $0$). This is a trivial case, so it's not very interesting. 
+	It is far more likely that the question is asking for the non-trivial case, so we take $x=14$.
+	Substituting $x=14$ into equation \eqref{eq:geo-ex-2}, we find the common ratio:
+	\begin{equation*}
+		r = \frac{x}{3} = \frac{14}{3}
+	\end{equation*}
+	\begin{enumerate}[label=\alph*)]
+		\item Now that we have both the first term and the common ratio, we can find the fifth term using the general formula:
+		\begin{align*}
+			u_5 &= u_1 \times r^{5-1} \\
+			&= (14 + 4) \times \left(\frac{14}{3}\right)^4 \\
+			&= 18 \times \frac{38416}{81} \\
+			&= \frac{691,488}{81}
+		\end{align*}
+		\item Next, we find the sum of the first seven terms using the sum formula for a geometric series:
+		\begin{align*}
+			S_7 &= u_1 \frac{1 - r^7}{1 - r} \\
+			&= (14 + 4) \frac{1 - \left(\frac{14}{3}\right)^7}{1 - \frac{14}{3}} \\
+			&= 18 \frac{1 - \frac{105,413,504}{2187}}{\frac{-11}{3}} \\
+			&= 18 \times \frac{-3}{11} \times \left(1 - \frac{105,413,504}{2187}\right) \\
+			&= \frac{-54}{11} \times \frac{-105,411,317}{2187} \\
+			&= \frac{5,693,008,518}{24,057}
+		\end{align*}
+	\end{enumerate}
+\end{answer}

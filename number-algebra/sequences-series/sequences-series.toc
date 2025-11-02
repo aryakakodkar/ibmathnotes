@@ -5,9 +5,9 @@
 \contentsline {chapter}{\numberline {2}Arithmetic Sequences and Series}{6}{chapter.2}%
 \contentsline {section}{\numberline {2.1}General Formula}{6}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Arithmetic Series}{7}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Geometric Sequences and Series}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}General Formula}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Geometric Series}{12}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Applications of Sequences and Series}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simple Interest}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Compound Interest}{17}{section.4.2}%
+\contentsline {chapter}{\numberline {3}Geometric Sequences and Series}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}General Formula}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Geometric Series}{13}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Applications of Sequences and Series}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simple Interest}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Compound Interest}{18}{section.4.2}%

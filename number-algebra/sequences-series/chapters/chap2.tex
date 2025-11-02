@@ -226,6 +226,7 @@ Nonetheless, you are likely better served by a few worked examples.
 	We can now find the required terms:
 	\begin{enumerate}[label=(\alph*)]
 		\item The general formula for the number of books she reads in the $n$th week:
+		        \setlength{\columnsep}{12pt}
 		\begin{align*}
 			u_n &= u_1 + (n-1)d \\
 			&= 1 + (n-1)\left(\frac{3}{4}\right) \\
@@ -295,33 +296,62 @@ Nonetheless, you are likely better served by a few worked examples.
 	Thus, Charlie will have generated a total revenue of \$7821 by the end of the first year.
 \end{answer}
 
+% DO NOT GO ABOVE THIS
+
 \begin{exercises}[Arithmetic Sequences and Series]
 \end{exercises}
 \begin{questions}
-  \begin{multicols}{2}
-    \begin{enumerate}[label = \alph*), wide, leftmargin = *, itemsep = 1ex, after = \setcounter{enumi}{0}]
-      \item Find the general formula for the following sequences:
-      \begin{tasks}[label=\roman*)](1)
-        \task $1, 3, 5, 7, 9, \ldots$
-        \task $2, 6, 18, 54, 162, \ldots$
-        \task $1, \frac{1}{4}, \frac{1}{9}, \frac{1}{16}, \ldots$
-        \task $4, 9, 16, 25, 36, \ldots$
-      \end{tasks}
-      \vfill\null
-      \columnbreak
-      \item Task B
-      \begin{tasks}(2)[label=\roman*]
-      \task Item b1)
-      \task Item b2)
-      \task Item b3)
-      \task Item b4)
-      \end{tasks}
-          \item Task C \begin{tasks}(2)
-      \task Item b1)
-      \task Item b2)
-      \task Item b3)
-      \task Item b4)
-      \end{tasks}
-    \end{enumerate}
-  \end{multicols}
+	% Put multicols outside enumerate so list indentation is computed per column
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*), itemsep=1ex]
+			\item Consider the arithmetic sequence where the first term is $7$ and the common difference is $5$. Find:
+			\begin{enumerate}[label=\roman*)]
+				\item The 15th term.
+				\item The general formula for the $n$th term.
+				\item The sum of the first 12 terms.
+			\end{enumerate}
+
+			\item An arithmetic sequence has $u_4 = 22$ and $u_{10} = 64$. Find:
+			\begin{enumerate}[label=\roman*)]
+				\item The first term and common difference.
+				\item The general formula for the $n$th term.
+				\item The sum of the first 15 terms.
+			\end{enumerate}
+		\end{enumerate}
+	\end{multicols}
+
+	\newpage
+
+	\vspace*{-0.3cm}
+
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\alph*), itemsep=1ex, start=3]
+			\item In an arithmetic sequence, the sum of the first three terms is $45$, and the sum of the next three terms is $81$. Find:
+			\begin{enumerate}[label=\roman*)]
+				\item The first term and common difference.
+				\item The general formula for the $n$th term.
+				\item The sum of the first 20 terms.
+				\item The term of the sequence which is equal to 119.
+			\end{enumerate}
+
+			\item A company offers a starting salary of \$50,000 with an annual increase of \$3,500. Find:
+			\begin{enumerate}[label=\roman*)]
+				\item The salary in the 10th year.
+				\item The general formula for the salary in the $n$th year.
+				\item The total salary earned over the first 15 years.
+			\end{enumerate}
+		\end{enumerate}
+	\end{multicols}
+
+	% final single-column question
+	\begin{enumerate}[label=\alph*), itemsep=1ex, start=5]
+		\item It is known that the sum of the first $n$ terms of an arithmetic sequence is given by $S_n = 3n^2 + 2n$. Find:
+		\begin{enumerate}[label=\roman*)]
+			\item The first term and common difference.
+			\item The general formula for the $n$th term.
+			\item The 15th term.
+		\end{enumerate}
+	\end{enumerate}
+
+	\vspace*{0.2cm}
 \end{questions}
